@@ -1,9 +1,23 @@
-void puts2(char *str) {
-    int i = 0; // Initialize the index variable to 0
-    while (str[i] != '\0') { // Loop through the string until we reach the null character
-        printf("%c", str[i]); // Print the character at index i
-        i += 2; // Increment the index by 2 to skip over the next character
-    }
-    printf("\n"); // Print a new line character to start a new line
-}
+#include "main.h"
 
+/**
+ * puts2 - print only first char out of 2.
+ * @str: Input
+ */
+void puts2(char *str)
+{
+int i;
+
+for (i = 0; str[i] != '\0'; i++)
+{
+if ((i % 2) == 0)
+{
+_putchar(str[i]);
+}
+else
+{
+continue;
+}
+}
+_putchar('\n');
+}
