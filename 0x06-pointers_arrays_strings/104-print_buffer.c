@@ -1,6 +1,6 @@
 /*
  * File: 104-print_buffer.c
- * Auth: King David Ajayi
+ * Auth: Okanlawon Olayemi
  */
 
 #include "main.h"
