@@ -21,7 +21,7 @@ This repository holds some projects I worked on for ALX. The goal is to learn co
 5. 3-array_range.c - A program that creates an array of integers.
 
 ## Author: Okanlawon Olayemi
-* 
+*
 
 ## License
 ALX
