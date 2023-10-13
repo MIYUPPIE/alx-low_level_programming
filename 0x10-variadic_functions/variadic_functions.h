@@ -1,18 +1,20 @@
-#ifndef VARIADIC_FUNCTIONS_H
-#define VARIADIC_FUNCTIONS_H
+#ifndef _FUNCTION_VARIADIC_H_
+#define _FUNCTION_VARIADIC_H_
 
-#include <stdarg.h>
-
-/* Prototype for the sum_them_all function */
 int sum_them_all(const unsigned int n, ...);
-
-/* Prototype for the print_numbers function */
 void print_numbers(const char *separator, const unsigned int n, ...);
-
-/* Prototype for the print_strings function */
 void print_strings(const char *separator, const unsigned int n, ...);
-
-/* Prototype for the print_all function */
 void print_all(const char * const format, ...);
+#include<stdarg.h>
+/**
+ * struct print - multiple choice print
+ * @x: char Type of print
+ * @T_func: funct
+ */
+typedef struct print
+{
+	char *x;
+	void (*T_func)(va_list);
+} t_print;
 
-#endif /* VARIADIC_FUNCTIONS_H */
+#endif
