@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
  *  create_file - create a file and write in it
