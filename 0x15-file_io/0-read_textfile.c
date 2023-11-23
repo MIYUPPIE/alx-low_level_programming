@@ -1,51 +1,37 @@
 #include "holberton.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 
 /**
- * read_textfile -  reads a text file and prints it
- * to the POSIX standard output
- * @filename: name of the file
- * @letters: number of letters it should read and print
- *
- * Return: returns the actual number of letters it could read and print
- * 0 if file cannot be opened or read
- * 0 if filename is NULL
- * 0 if write fails or does not write expected amount of bytes
+ * read_textfile - read text and print it to POSIX
+ * @filename: name of file char
+ * @letters:number of letters to read size_t
+ * Return: read the file display it or error 0
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, checkr, checkw;
-	char *c;
+	int fd, rd, wd;
+	char *buff = malloc(sizeof(char) * letters);
 
-	if (filename == 0)
+	if (filename == NULL)
+	{
 		return (0);
+	}
 
-	c = malloc(letters + 1);
-
-	if (c == 0)
-		return (0);
-
-	fd  = open(filename, O_RDONLY);
-
+	fd = open(filename, O_RDWR);
 	if (fd == -1)
-		return (free(c), 0);
-
-	checkr = read(fd, c, letters);
-
-	if (checkr == -1)
-		return (free(c), 0);
-
-	c[letters] = '\0';
-
-	checkw = write(STDOUT_FILENO, c, checkr);
-	if (checkw == -1)
-		return (free(c), 0);
-
-	free(c);
+	{
+		return (0);
+	}
+	rd = read(fd, buff, letters);
+	if (rd == -1)
+	{
+		return (0);
+	}
+	wd = write(STDOUT_FILENO, buff, rd);
+	if (wd == -1)
+	{
+		return (0);
+	}
 	close(fd);
-	return (checkw);
+	free(buff);
+	return (wd);
 }
